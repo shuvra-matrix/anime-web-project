@@ -1,0 +1,108 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #150050;
+}
+
+.nav-bar {
+    padding: 1rem;
+    background-color: #E0144C;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.nav-list {
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
+    align-items: center;
+    gap: 4rem;
+}
+
+nav ul li:first-child {
+    flex-basis: 40%;
+
+}
+
+nav ul li:nth-child(2) {
+    flex-basis: 15%;
+    text-align: right;
+
+}
+
+nav ul li:last-child {
+    flex-basis: 30%;
+}
+
+.input-div {
+    padding-right: 1rem;
+    display: flex;
+    justify-content: end;
+    border: 2px solid #150050;
+    border-radius: 12px;
+}
+
+.input-div input {
+
+    border: none;
+    border-radius: 12px;
+    background-color: #E0144C;
+    width: 100%;
+}
+
+.input-div button {
+    border: none;
+    background-color: #cf093e;
+    text-align: center;
+    color: white;
+    font-size: .9rem;
+    height: 30px;
+}
+
+.main-section {
+    width: 90%;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.anime-section {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: baseline;
+    align-content: center;
+    flex-flow: row wrap;
+    gap: 2rem;
+    text-align: center;
+    font-size: 1rem;
+    color: white;
+}
+
+.popular-anime {
+    flex-basis: 18%;
+    padding: 1rem 1rem 2rem 1rem;
+    width: 250px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+
+
+}
+
+
+
+
+img {
+    margin-top: 2rem;
+    height: 200px;
+    width: 200px;
+}
