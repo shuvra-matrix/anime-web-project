@@ -122,7 +122,7 @@ a {
 
 .main-section,
 .main-section-nd {
-    width: 100%;
+    width: 80%;
     margin: 0 auto;
     padding: 1rem 1rem 3rem 1rem;
     color: white;
@@ -333,5 +333,11 @@ img {
         font-size: .8rem;
     }
 
+    .main-section,
+    .main-section-nd {
+        width: 100%;
+
+
+    }
 
 }
