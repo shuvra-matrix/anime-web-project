@@ -106,13 +106,13 @@ function popularAnime() {
           }
 
           let animeEpisode = document.querySelectorAll(".episod-list-item");
-          console.log(animeEpisode);
+
           for (let i = 0; i < animeEpisode.length; i++) {
             animeEpisode[i].addEventListener("click", () => {
               let animeId = animeEpisode[i].lastElementChild.textContent;
               let newAnimeId = animeId.replace(/"/g, "");
               let newAnimeIds = newAnimeId.trim();
-              console.log(newAnimeIds);
+
               const settings = {
                 async: true,
                 crossDomain: true,
@@ -128,7 +128,6 @@ function popularAnime() {
               };
 
               $.ajax(settings).done(function (response) {
-                console.log(response);
                 window.open(response.Referer);
               });
             });
@@ -144,10 +143,15 @@ popularAnime();
 let grabAnime = (event) => {};
 
 search.addEventListener("click", function searchAnime() {
+  $(".search-anime-section").empty();
+  $(".anime-details-section").empty();
   let userinput = inpute.value;
   sectionNd.classList.remove("hidden");
   section.classList.add("hidden");
   anime.classList.add("hidden");
+  if (searchAnimes.classList.contains("hidden")) {
+    searchAnimes.classList.remove("hidden");
+  }
   let newText = userinput.replace(" ", "%20");
 
   const settings = {
@@ -183,12 +187,12 @@ search.addEventListener("click", function searchAnime() {
         sectionNd.classList.remove("hidden");
         section.classList.add("hidden");
         anime.classList.add("hidden");
-        searchAnimes.classList.add("hidden");
+        searchAnimes.classList.toggle("hidden");
         let animeName = popularAnimes[i].lastElementChild.textContent;
         let newAnimeName = animeName.replace(/"/g, "");
         let newAnimeNames = newAnimeName.trim();
         let newAnime = newAnimeNames.replaceAll(" ", "-");
-        console.log(newAnime);
+
         const settings = {
           async: true,
           crossDomain: true,
@@ -201,7 +205,6 @@ search.addEventListener("click", function searchAnime() {
           },
         };
         $.ajax(settings).done(function (res) {
-          console.log(res);
           $(".anime-details-section").append(
             `
             <div class='sub-anime-details'>
@@ -247,13 +250,13 @@ search.addEventListener("click", function searchAnime() {
             );
           }
           let animeEpisode = document.querySelectorAll(".episod-list-item");
-          console.log(animeEpisode);
+
           for (let i = 0; i < animeEpisode.length; i++) {
             animeEpisode[i].addEventListener("click", () => {
               let animeId = animeEpisode[i].lastElementChild.textContent;
               let newAnimeId = animeId.replace(/"/g, "");
               let newAnimeIds = newAnimeId.trim();
-              console.log(newAnimeIds);
+
               const settings = {
                 async: true,
                 crossDomain: true,
@@ -269,7 +272,6 @@ search.addEventListener("click", function searchAnime() {
               };
 
               $.ajax(settings).done(function (response) {
-                console.log(response);
                 window.open(response.Referer);
               });
             });
