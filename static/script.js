@@ -9,7 +9,7 @@ function popularAnime() {
   const settings = {
     async: true,
     crossDomain: true,
-    url: "https://gogoanime2.p.rapidapi.com/popular?page=1",
+    url: "https://gogoanime2.p.rapidapi.com/popular?page=3",
     method: "GET",
     headers: {
       "X-RapidAPI-Key": "53db47703bmsh43337a6ff98140ep1d9019jsnfa4b3f6ce92b",
@@ -24,16 +24,93 @@ function popularAnime() {
         `<div class='popular-anime'> 
         
         <div class="anime-image">
-        <img src="${response[i].animeImg}"  alt"${response[i].animeTitle} poster">
+        <img src="${response[i].animeImg}"  alt="${response[i].animeTitle} poster">
         </img>
         </div>     
         <div class="anime-title">
         <p>${response[i].animeTitle}</p>
-        
+        </div>
+        <div class='hidden'>
+          <p>"${response[i].animeId}"</p>
         </div>
         
         </div>`
       );
+    }
+    let popularAnimes = document.querySelectorAll(".popular-anime");
+    for (let i = 0; i < popularAnimes.length; i++) {
+      popularAnimes[i].addEventListener("click", () => {
+        sectionNd.classList.remove("hidden");
+        section.classList.add("hidden");
+        anime.classList.add("hidden");
+        let animeName = popularAnimes[i].lastElementChild.textContent;
+        console.log(animeName.length);
+        let newAnimeName = animeName.replace(/"/g, "");
+        let newAnimeNames = newAnimeName.trim();
+        let url =
+          "https://gogoanime2.p.rapidapi.com/anime-details/" +
+          newAnimeNames +
+          "/";
+        console.log(url);
+        const settings = {
+          async: true,
+          crossDomain: true,
+          url:
+            "https://gogoanime2.p.rapidapi.com/anime-details/" + newAnimeNames,
+          method: "GET",
+          headers: {
+            "X-RapidAPI-Key":
+              "53db47703bmsh43337a6ff98140ep1d9019jsnfa4b3f6ce92b",
+            "X-RapidAPI-Host": "gogoanime2.p.rapidapi.com",
+          },
+        };
+        $.ajax(settings).done(function (res) {
+          $(".anime-details-section").append(
+            `
+            <div class='sub-anime-details'>
+              <div class= 'anime-titla'>
+              <h1>${res.animeTitle}</h1>
+              </div>
+              <div class='anime-image-synp'>
+             
+              <div class='details-anime-image'>
+              <img src=${res.animeImg} >
+              </div>
+              <div class='syns'>
+                <p>${res.synopsis}</p>
+              </div>
+               </div>
+               <div class="episod-list-section">
+                <ul class='episod-list'>
+                </ul>
+               </div>
+            </div>
+            `
+          );
+          let episodList = res.episodesList;
+          console.log(episodList[0]);
+          for (let i = 0; i < episodList.length; i++) {
+            $(".episod-list").append(
+              `
+              <li class='episod-list-item'>
+              <div class='list-main-div'>
+              <div class="list-image">
+                <img src=${res.animeImg} alt="anime-image">
+              </div>
+              <div class="eposide-id">
+              
+              <p>${episodList[i].episodeNum}</p>
+              </div>
+              </div>
+               <div class='hidden'>
+              <p>${episodList[i].episodeId}</p>
+              </div>
+              </li>
+              `
+            );
+          }
+        });
+      });
     }
   });
 }
@@ -68,7 +145,7 @@ search.addEventListener("click", function searchAnime() {
       $(".search-anime-section").append(
         `<div class='popular-anime'> 
         <div class="anime-image">
-        <img src="${responses[i].animeImg}"  alt"${responses[i].animeTitle} poster">
+        <img src="${responses[i].animeImg}"  alt="${responses[i].animeTitle} poster">
         </img>
         </div>     
         <div class="anime-title">
