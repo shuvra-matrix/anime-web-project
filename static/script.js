@@ -5,7 +5,6 @@ let sectionNd = document.querySelector(".main-section-nd");
 let inpute = document.querySelector("#input");
 let search = document.querySelector("button");
 let typeOfAction = document.querySelector(".type");
-let popularAnimeList = [];
 
 function popularAnime() {
   const settings = {
@@ -20,7 +19,6 @@ function popularAnime() {
   };
 
   $.ajax(settings).done(function (response) {
-    popularAnimeList = response;
     for (let i = 0; i < response.length; i++) {
       $(".anime-section").append(
         `<div class='popular-anime'> 
