@@ -46,7 +46,9 @@ function popularAnime() {
         let animeName = popularAnimes[i].lastElementChild.textContent;
         let newAnimeName = animeName.replace(/"/g, "");
         let newAnimeNames = newAnimeName.trim();
-        let newAnime = newAnimeNames.replaceAll(" ", "-");
+        let newAnime = newAnimeNames.replaceAll("(", "");
+        newAnime = newAnime.replaceAll(")", "");
+        newAnime = newAnime.replaceAll(" ", "-");
         const settings = {
           async: true,
           crossDomain: true,
@@ -187,10 +189,14 @@ search.addEventListener("click", function searchAnime() {
         anime.classList.add("hidden");
         searchAnimes.classList.toggle("hidden");
         let animeName = popularAnimes[i].lastElementChild.textContent;
+        console.log(animeName);
         let newAnimeName = animeName.replace(/"/g, "");
         let newAnimeNames = newAnimeName.trim();
-        let newAnime = newAnimeNames.replaceAll(" ", "-");
+        let newAnime = newAnimeNames.replaceAll("(", "");
+        newAnime = newAnime.replaceAll(")", "");
+        newAnime = newAnime.replaceAll(" ", "-");
 
+        console.log(newAnime);
         const settings = {
           async: true,
           crossDomain: true,
