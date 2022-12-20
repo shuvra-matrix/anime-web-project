@@ -67,6 +67,13 @@ nav ul li:last-child {
     flex-basis: 30%;
 }
 
+a {
+    text-decoration: none;
+    color: white;
+}
+
+
+
 .input-div {
     display: flex;
     justify-content: end;
@@ -76,6 +83,7 @@ nav ul li:last-child {
     padding: .6rem;
 
 }
+
 
 .input-div input {
 
@@ -214,6 +222,7 @@ img {
 .syns {
     flex-basis: 50%;
     font-size: 1.5rem;
+    text-align: justify;
 }
 
 .episod-list-section {
@@ -238,6 +247,12 @@ img {
 
 .list-main-div {
     width: 200px;
+}
+
+.eposide-id {
+    text-align: center;
+    background-color: #3F0071;
+    width: 100%;
 }
 
 
@@ -305,7 +320,13 @@ img {
     .syns {
         flex-basis: 100%;
         text-align: justify;
+        font-size: 1rem;
     }
+
+    .details-anime-image img {
+        width: 200px;
+    }
+
 
 
 }
