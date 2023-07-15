@@ -10,12 +10,8 @@ function popularAnime() {
   const settings = {
     async: true,
     crossDomain: true,
-    url: "https://gogoanime2.p.rapidapi.com/popular?page=3",
+    url: "https://gogoanime-51a2.onrender.com/popular?page=3",
     method: "GET",
-    headers: {
-      "X-RapidAPI-Key": "53db47703bmsh43337a6ff98140ep1d9019jsnfa4b3f6ce92b",
-      "X-RapidAPI-Host": "gogoanime2.p.rapidapi.com",
-    },
   };
 
   $.ajax(settings).done(function (response) {
@@ -52,13 +48,8 @@ function popularAnime() {
         const settings = {
           async: true,
           crossDomain: true,
-          url: "https://gogoanime2.p.rapidapi.com/anime-details/" + newAnime,
+          url: "https://gogoanime-51a2.onrender.com/anime-details/" + newAnime,
           method: "GET",
-          headers: {
-            "X-RapidAPI-Key":
-              "53db47703bmsh43337a6ff98140ep1d9019jsnfa4b3f6ce92b",
-            "X-RapidAPI-Host": "gogoanime2.p.rapidapi.com",
-          },
         };
         $.ajax(settings).done(function (res) {
           $(".anime-details-section").append(
@@ -117,14 +108,9 @@ function popularAnime() {
                 async: true,
                 crossDomain: true,
                 url:
-                  "https://gogoanime2.p.rapidapi.com/vidcdn/watch/" +
+                  "https://gogoanime-51a2.onrender.com/vidcdn/watch/" +
                   newAnimeIds,
                 method: "GET",
-                headers: {
-                  "X-RapidAPI-Key":
-                    "53db47703bmsh43337a6ff98140ep1d9019jsnfa4b3f6ce92b",
-                  "X-RapidAPI-Host": "gogoanime2.p.rapidapi.com",
-                },
               };
 
               $.ajax(settings).done(function (response) {
@@ -157,12 +143,9 @@ search.addEventListener("click", function searchAnime() {
   const settings = {
     async: true,
     crossDomain: true,
-    url: "https://gogoanime2.p.rapidapi.com/search?keyw=" + newText + "&page=1",
+    url:
+      "https://gogoanime-51a2.onrender.com/search?keyw=" + newText + "&page=1",
     method: "GET",
-    headers: {
-      "X-RapidAPI-Key": "53db47703bmsh43337a6ff98140ep1d9019jsnfa4b3f6ce92b",
-      "X-RapidAPI-Host": "gogoanime2.p.rapidapi.com",
-    },
   };
 
   $.ajax(settings).done(function (responses) {
@@ -200,13 +183,8 @@ search.addEventListener("click", function searchAnime() {
         const settings = {
           async: true,
           crossDomain: true,
-          url: "https://gogoanime2.p.rapidapi.com/anime-details/" + newAnime,
+          url: "https://gogoanime-51a2.onrender.com/anime-details/" + newAnime,
           method: "GET",
-          headers: {
-            "X-RapidAPI-Key":
-              "53db47703bmsh43337a6ff98140ep1d9019jsnfa4b3f6ce92b",
-            "X-RapidAPI-Host": "gogoanime2.p.rapidapi.com",
-          },
         };
         $.ajax(settings).done(function (res) {
           $(".anime-details-section").append(
@@ -265,14 +243,9 @@ search.addEventListener("click", function searchAnime() {
                 async: true,
                 crossDomain: true,
                 url:
-                  "https://gogoanime2.p.rapidapi.com/vidcdn/watch/" +
+                  "https://gogoanime-51a2.onrender.com/vidcdn/watch/" +
                   newAnimeIds,
                 method: "GET",
-                headers: {
-                  "X-RapidAPI-Key":
-                    "53db47703bmsh43337a6ff98140ep1d9019jsnfa4b3f6ce92b",
-                  "X-RapidAPI-Host": "gogoanime2.p.rapidapi.com",
-                },
               };
 
               $.ajax(settings).done(function (response) {
